@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.Arrays;
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         LineDataSet dataSet = new LineDataSet(entryList,"Heart Rate");
         dataSet.setColor(getResources().getColor(android.R.color.holo_blue_dark));
         dataSet.setValueTextColor(getResources().getColor(android.R.color.white));
+
+        LineData lineData = new LineData(dataSet);
+        chart.setData(lineData);
+        chart.invalidate(); // refresh chart
 
     }
 }
